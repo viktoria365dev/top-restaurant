@@ -1,3 +1,13 @@
+:root {
+  --color-bg: #fafafa;
+  --color-text: #333;
+  --color-muted: #777;
+
+  --color-primary: #c0392b;
+  --color-primary-light: #e74c3c;
+  --color-primary-dark: #962d22;
+}
+
 *,
 *::before,
 *::after {
@@ -9,11 +19,10 @@
 html,
 body {
   height: 100%;
-  margin: 0;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.5;
-  color: #333;
-  background-color: #fafafa;
+  color: var(--color-text);
+  background-color: var(--color-bg);
   scroll-behavior: smooth;
 }
 
@@ -23,24 +32,25 @@ body {
   height: 100%;
 }
 
-/* Header / Main / Footer */
-
+/* Header */
 header {
   background: #fff;
   padding: 1rem 2rem;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
 
 nav {
   display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
 nav button {
-  background: #c0392b;
+  background: var(--color-primary);
   color: #fff;
   border: none;
   padding: 0.5rem 1.25rem;
@@ -52,7 +62,7 @@ nav button {
 }
 
 nav button:hover {
-  background: #e74c3c;
+  background: var(--color-primary-light);
   transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
@@ -63,30 +73,31 @@ nav button:focus {
 }
 
 nav button.active {
-  background: #962d22;
+  background: var(--color-primary-dark);
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
+/* Main Content */
 main#content {
   flex: 1;
   overflow-y: auto;
 }
 
+/* Footer */
 footer {
   background: #fff;
   padding: 1rem 2rem;
   text-align: center;
   font-size: 0.9rem;
-  color: #777;
+  color: var(--color-muted);
   box-shadow: 0 -1px 6px rgba(0, 0, 0, 0.05);
   flex-shrink: 0;
 }
 
+/* Home / Hero */
 .home {
   height: 100%;
 }
-
-/* Hero */
 
 .hero {
   position: relative;
@@ -119,7 +130,6 @@ footer {
 }
 
 /* Menu */
-
 .menu-container {
   max-width: 1200px;
   padding: 2rem;
@@ -131,9 +141,9 @@ footer {
 
 .menu-container h2 {
   font-size: 1.75rem;
-  border-bottom: 2px solid #c0392b;
+  border-bottom: 2px solid var(--color-primary);
   padding-bottom: 0.5rem;
-  color: #c0392b;
+  color: var(--color-primary);
 }
 
 .menu-grid {
@@ -178,22 +188,25 @@ footer {
 .menu-item .price {
   margin: 0 1rem 1rem;
   font-weight: bold;
-  color: #c0392b;
+  color: var(--color-primary);
 }
 
 /* Contact */
-
 .contact {
   max-width: 600px;
+  min-height: 100%;
   padding: 2rem;
-  margin: 2rem auto;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   text-align: center;
 }
 
 .contact h2 {
   margin-bottom: 0.5rem;
   font-size: 1.75rem;
-  color: #c0392b;
+  color: var(--color-primary);
 }
 
 .contact p {
@@ -217,40 +230,33 @@ footer {
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border-color: #c0392b;
+  border-color: var(--color-primary);
   box-shadow: 0 0 0 2px rgba(192, 57, 43, 0.2);
 }
 
 .contact-form button {
   padding: 0.75rem;
-  background: #c0392b;
+  background: var(--color-primary);
   color: #fff;
   border-radius: 4px;
   transition: background-color 0.2s;
 }
 
 .contact-form button:hover {
-  background: #a93226;
+  background: var(--color-primary-dark);
 }
 
+/* Responsive */
 @media (max-width: 600px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .hero {
-    height: 50vh;
-  }
-
   .hero-text {
-    bottom: 1rem;
-    left: 1rem;
-    padding: 0.75rem 1rem;
+    max-width: 90%;
   }
 
   .hero-text h2 {
     font-size: 1.5rem;
+  }
+
+  .hero-text p {
+    font-size: 1rem;
   }
 }
